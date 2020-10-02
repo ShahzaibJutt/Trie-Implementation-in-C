@@ -11,6 +11,5 @@ The file sizes are larger.  Help me to make it more smarter.</p>
 It requires you to create every function on your own. It unveils the layer of abstraction between the programmer and memory.</p>
 <h1 id="fix-me">Fix Me</h1>
 <ol>
-<li>The code is not portable. If you want to run the code on linux system you have to modify the <strong>makefile</strong> and some functions in the code.</li>
 <li>The PrintTrie function does not work on words with spaces.</li>
 </ol>
