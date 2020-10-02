@@ -1,11 +1,21 @@
 /* Implementation of trie data_structure in C*/
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Trie.h"
+
+void readLine(char *buff, int size) {
+		if(fgets(buff, size, stdin) == NULL)
+			buff[0] = 0;
+
+		buff = strrchr(buff, '\n');
+		if(buff != NULL)
+			*buff = 0;
+}
 
 int main(int argc, char const *argv[]) {
 		trie *head = create_trie();
-		char word[10];
+		char word[16];
 		int c;
 		while(1)
 		{
@@ -14,26 +24,29 @@ int main(int argc, char const *argv[]) {
 				printf("3_Delete a node\n");
 				printf("4_View the trie\n");
 				printf("5_Exit\n");
-				scanf("%d",&c );
-				fflush(stdin);
-				system("cls");
+				readLine(word, sizeof word);
+				c = atoi(word);
+
+				if(c > 0 && c < 4)
+				{
+					printf("Word?\n");
+					readLine(word, sizeof word);
+				}
+
 				switch  (c)
 				{
 				case (1):
 				{
-						gets(word);
 						insertNode(head,word);
 						break;
 				}
 				case (2):
 				{
-						gets(word);
 						search(head,word)!=NULL ? printf("%s found\n",word) : printf("Not found\n");
 						break;
 				}
 				case (3):
 				{
-						gets(word);
 						delete(head,word);
 						break;
 				}
